@@ -1,0 +1,16 @@
+.link
+  display: block
+
+  @each $style, $color in $link-colors
+    $link-border-color: map_get($color, 'hover')
+    
+    &--#{$style}
+      color: map_get($color, 'base')
+      &:hover
+        color: map_get($color, 'hover')
+        box-shadow: 0 1px 0 0 rgba($link-border-color, 0.64)
+      &:focus
+        color: map_get($color, 'focus')
+        box-shadow: 0 2px 0 0 $link-border-color
+      &:disabled
+        color: map_get($color, 'disabled')

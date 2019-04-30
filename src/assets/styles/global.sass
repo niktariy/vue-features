@@ -1,0 +1,70 @@
+@import "base/typography"
+@import "base/flex-grid"
+@import "base/animation"
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+body
+  overflow-anchor: none
+
+ul,
+nav
+  list-style: none
+
+p > p
+  margin-top: 16px
+
+img
+  width: 100%
+  height: auto
+  object-fit: contain
+
+$selection-bg: $secondaryLight
+::-moz-selection
+  background-color: $selection-bg
+  color: invert($selection-bg)
+::selection
+  background-color: $selection-bg
+  color: invert($selection-bg)
+
+input, textarea, select
+  appearance: none
+  outline: none
+  +placeholder
+    color: $input__placeholder-color
+    font-family: inherit
+    font-size: inherit
+    transition: color 0.12s $v--standard-easing
+
+a,
+button,
+.link,
+.btn
+  text-decoration: none
+  outline-color: $outline-color
+  will-change: background-color, border, box-shadow
+  transition-property: color, background-color, border, box-shadow
+  transition-timing-function: $v--standard-easing
+  transition-duration: .28s
+  &:not(:disabled)
+    cursor: pointer
+
+.btn-group
+  display: flex
+  flex-direction: column
+
+  +sm-up
+    flex-direction: row
+
+  & > .component
+    +sm-up
+      &:not(:last-of-type)
+        margin-right: 16px
+
+@import "components/link"
+@import "components/section"

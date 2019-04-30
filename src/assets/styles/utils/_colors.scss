@@ -1,0 +1,115 @@
+$primaryDark:   hsl(172, 100%, 41%);
+$primary:       hsl(169, 77%, 83%);
+$primaryLight:  hsl(170, 71%, 93%);
+
+$secondaryLight:hsl(227, 88%, 97%);
+$secondary:     hsl(227, 100%, 86%);
+$secondaryDark: hsl(227, 89%, 68%);
+
+$MineShaft:     rgb(46, 46, 46) !global;
+$Scorpion:      rgb(88, 88, 88) !global;
+$Boulder:       rgb(109, 109, 109) !global;
+$Silver:        rgb(170, 170, 170) !global;
+$Mercury:       rgb(200, 200, 200) !global;
+$Gainsboro:     rgb(226, 226, 226) !global;
+$Gallery:       rgb(240, 240, 240) !global;
+
+$Liliac:    hsl(272, 100%, 78%) !global;
+$PaleLilac: hsl(273, 100%, 90%) !global;
+$Magnolia:  hsl(268, 100%, 97%) !global;
+
+$Blush:     hsl(8, 83%, 73%)  !global;
+$Peach:     hsl(19, 93%, 82%) !global;
+$Bridesmaid:hsl(12, 88%, 97%) !global;
+
+$TicklePink:  hsl(342, 97%, 71%)   !global;
+$LavenderPink:hsl(341, 87%, 85%) !global;
+$CarouselPink:hsl(339, 70%, 96%) !global;
+
+$Haiti:     hsl(247, 48%, 24%) !global;
+$Jacarta:   hsl(247, 43%, 31%) !global;
+$Twilight:  hsl(247, 28%, 44%) !global;
+$PurpleBlue:hsl(248, 47%, 47%) !global;
+
+$PaleGrey:  hsl(245, 23%, 90%)  !global;
+$GhostWhite:hsl(246, 100%, 96%) !global;
+$White:     hsl(0, 0%, 100%)    !global;
+
+$outline-color: $primary;
+$disabled-color: $PaleGrey;
+$base-shadow: hsla(247, 48%, 14%, 0.04);
+
+$section-background--light: $secondaryLight;
+$section-background--dark: $PurpleBlue;
+
+// buttons
+$button-states: (
+  "base": $primaryDark,
+  "hover": $primaryDark,
+  "focus": $secondaryDark
+);
+
+// links
+$link-color--green: (
+  "base": $primary,
+  "hover": $primaryDark,
+  "focus": $secondaryDark,
+  "disabled": $disabled-color
+);
+$link-color--white: (
+  "base": $GhostWhite,
+  "hover": $White,
+  "focus": $White,
+  "disabled": $PaleGrey
+);
+$link-colors: (
+  "green": $link-color--green,
+  "grey": $link-color--white
+);
+
+// link border color is hover color with 64% opacity
+
+// Header
+$header__shadow: (
+  "base": (
+    "offsetY": 2px,
+    "blur": 0,
+    "spread": 0,
+    "color": $PaleGrey
+  ),
+  "fixed": (
+    "offsetY": 16px,
+    "blur": 32px,
+    "spread": -8px,
+    "color": rgba($Jacarta, 0.08)
+  )
+);
+
+// Footer
+$footer__background: $Haiti;
+$footer__heading-color: $White;
+$fooer__text-color: $GhostWhite;
+
+//typography
+$headings-color: $Haiti !global;
+$text-color--regular: $Jacarta !global;
+$text-color--accent: $primaryDark !global;
+$text-color--disabled: $Mercury !global;
+
+//inputs
+$input__text-color: $Haiti;
+$input__placeholder-color: $Twilight;
+$input__label-color: $text-color--regular;
+$input__shadow-color: rgba($input__text-color, 0.16);
+$input--filled__shadow-color: $primary;
+$input--required__text-color: $TicklePink;
+$input--invalid__shadow-color: $TicklePink;
+
+//
+//$input-upload__shadow-color: rgba($primaryDark, 0.18)
+//$input-upload__button-bg-color: $White
+//$input-upload__border-color: $White
+//$input-upload__label-color: $secondary
+//$uploaded-file__box-shadow-color: $WhiteSmoke
+//$uploaded-file__remove-color: $White
+//$uploaded-file__remove-bg-color: $secondaryLight

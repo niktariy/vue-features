@@ -1,0 +1,143 @@
+// -----------
+// Functions
+// -----------
+
+@function automatic-spacing($start-point, $end-point, $min-width: 480)
+  @return calc( #{$start-point}px + #{$end-point - $start-point} * ((100vw - #{$min-width}px) / (1920 - #{$min-width})) )
+
+@function pow($number, $exponent)
+  $value: 1
+
+  @if $exponent > 0
+    @for $i from 1 through $exponent
+      $value: $value * $number
+
+  @return $value
+
+@function z($layer)
+  @return map-get($z-indexes, $layer)
+
+// -----------
+// Mixins
+// -----------
+
+=box-sizing($boxsizing)
+  -webkit-box-sizing: $boxsizing
+  -moz-box-sizing: $boxsizing
+  box-sizing: $boxsizing
+
+=appearance($value)
+  -webkit-appearance: $value
+  -moz-appearance: $value
+  appearance: $value
+
+=user-select($prop)
+  -webkit-user-select: $prop
+  -moz-user-select: $prop
+  -ms-user-select: $prop
+  user-select: $prop
+
+// Стилизация placeholder
+// пример:
+// @include placeholder {
+//   color: grey;
+//   font-size: 14px;
+// };
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+=circle($w,$h:$w,$r: 50%)
+  width: $w
+  height: $h
+  border-radius: $r
+
+// усечение элемента применять к текстовым тегам типа "span" "p" и т.д.
+// пример: @include truncate(110px);
+=truncate($font-size, $line-height, $line: 1)
+  max-width: $line*$font-size*$line-height
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+// after||before content
+=cont($value:'', $full: false)
+  position: relative
+  &::after
+    content: $value
+    display: block
+    position: absolute
+    @if $full
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      width: 100%
+      height: 100%
+      z-index: z('below')
+    @content
+    
+
+=hidden
+  visibility: hidden
+  position: absolute !important
+  display: none !important
+  width: 1px !important
+  height: 1px !important
+  overflow: hidden
+  clip: rect(1px 1px 1px 1px)
+  // IE 6,7
+  clip: rect(1px, 1px, 1px, 1px)
+
+=opacity($opacity)
+  $opacity-ie: $opacity * 100
+  filter: alpha(opacity=$opacity-ie)
+  opacity: $opacity
+
+=column-size($col-num)
+  width: 100% * $col-num / $columns
+  flex-basis: 100% * $col-num / $columns
+  max-width: 100% * $col-num / $columns
+
+=text-accent($background: white)
+  $r: red($background)/255
+  $g: green($background)/255
+  $b: blue($background)/255
+  $gamma: 2.2
+  
+  $luminosity: .2126*pow($r, $gamma) + .7152*pow($g, $gamma) + .0722*pow($b, $gamma)
+  
+  background: $background
+  color: if($luminosity < .5, $White, $text-color--regular)
+
+
+// -----------
+// Extend placeholders
+// -----------
+
+%card-list-item-style
+  margin-top: 24px
+  font-size: 16px
+  line-height: 1.5
+  
+  +lg-up
+    font-size: 18px
+  
+  &:not(.is-disabled)
+    +cont()
+      +circle(4px)
+      left: -16px
+      top: 10px
+      transform: translate(-50%, 0)
+      background-color: $primaryDark
+      box-shadow: 0 0 0 4px rgba($primary, 0.48)
+  
+  &.is-disabled
+    color: $text-color--disabled
+    text-decoration: line-through

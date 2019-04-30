@@ -1,0 +1,53 @@
+@import "avenir"
+$AvenirFamily: 'Avenir Next', 'Lato', Arial, sans-serif
+
+body
+  font-family: $AvenirFamily
+  font-size: $baseFontSize
+  line-height: 1.5
+  color: $text-color--regular
+
+h1, .h1-like,
+h2, .h2-like,
+h3, .h3-like,
+h4, .h4-like,
+h5, .h5-like,
+  font-weight: bold
+  color: $headings-color
+
+h1, .h1-like
+  line-height: 1.2
+  font-size: $font-h1
+  +xl-up
+    font-size: 45px
+
+h2, .h2-like
+  font-size: $font-h2
+  +xl-up
+    font-size: 32px
+
+h3, .h3-like
+  line-height: 1.4
+  font-size: $font-h3
+  +xl-up
+    font-size: 24px
+
+h4, .h4-like
+  text-transform: uppercase
+  font-size: $font--14-18
+  letter-spacing: 0.6px
+  +xl-up
+    font-size: 18px
+
+.heading-text
+  color: $text-color--regular
+  font-size: $font--16-24
+  +xl-up
+    font-size: 24px
+
+.text-accent
+  font-weight: 600
+
+a, .link,
+button, .btn
+  line-height: 1.5

@@ -1,0 +1,22 @@
+section, .section
+  padding: automatic-spacing(36, 96) 0
+
+.section
+  &__title
+    margin-bottom: 48px
+    & + p
+      margin-top: -32px
+    +lg-up
+      margin-bottom: 96px
+      & + p
+        margin-top: -72px
+  
+  &__wrapper
+    background-color: #F0F0F0
+
+.services
+  display: flex
+  +breakpoint-max($medium)
+    flex-direction: column
+  +xs-only
+    padding-bottom: 0

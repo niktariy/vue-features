@@ -14,6 +14,14 @@ Vue.use(Vuex);
 Vue.component('c-input', BaseInput);
 Vue.component('section-template', BaseSectionTemplate);
 
+Vue.directive('auto-focus', {
+  // Когда привязанный элемент вставлен в DOM...
+  inserted(el) {
+    // Переключаем фокус на элемент
+    el.focus();
+  },
+});
+
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title;
   next();

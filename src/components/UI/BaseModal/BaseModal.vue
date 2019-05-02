@@ -67,7 +67,8 @@ export default {
     background-color: rgba($MineShaft, 0.24)
   &__content
     padding: 24px 16px
-    background-color: $White
+    background-color: $secondaryLight
+    box-shadow: 0 12px 24px 0 fade-in($base-shadow, .12)
     border-radius: 8px
     z-index: z('modal') + 10
   &__heading

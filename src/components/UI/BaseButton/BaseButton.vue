@@ -12,6 +12,7 @@
         :type="type"
         :class="[extraClass, 'btn--'+modifier]"
         :disabled="isDisabled"
+        @click="(event) => this.$emit('onClick', event)"
       ) {{label}}
 </template>
 

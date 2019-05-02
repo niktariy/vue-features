@@ -6,7 +6,7 @@
       :id="id"
       :type="inputType"
       :placeholder="placeholderText"
-      :required="isRequired ? true : false"
+      :required="!!isRequired"
       @input="$emit('input', $event.target.value)"
       @keyup="toggleFilledClass()"
       @focus="isFocused = true"
@@ -65,6 +65,10 @@ export default {
       type: String,
       default: '',
       required: false,
+    },
+    hasAutoFocus: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
